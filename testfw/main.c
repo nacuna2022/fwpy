@@ -64,7 +64,7 @@ struct version_info {
 
 #define __DECLARE_VERSION_INFO(name, maj, min, pl, b)           \
         static const struct version_info __data_info name = {   \
-                .signature = BOOT_INFO_SIGNATURE,               \
+                .signature = VERSION_INFO_SIGNATURE,               \
                 .major = (maj),                                 \
                 .minor = (min),                                 \
                 .patch_level = (pl),                            \
@@ -76,7 +76,7 @@ struct version_info {
 
 
 struct product_info {
-#define PRODUCT_INFO_SIGNATURE  "\x7-PRODINFO-\xf7"
+#define PRODUCT_INFO_SIGNATURE  "\x7f-PRODINFO-\xf7"
 #define MANUFACTURER_ID_LENGTH  63
 #define MODEL_ID_LENGTH         63
 #define MODEL_CODE_LENGTH       64
@@ -103,7 +103,7 @@ struct product_info {
         }
 
 struct dfu_info {
-#define DFU_INFO_SIGNATURE  "\x7-DFUINFO-\xf7"
+#define DFU_INFO_SIGNATURE  "\x7f-DFUINFO-\xf7"
         uint8_t signature[SIGNATURE_LENGTH];
         addr_t address;
         uint32_t pattern;
@@ -118,7 +118,7 @@ struct dfu_info {
 
 
 struct parameters_info {
-#define PARAMETERS_INFO_SIGNATURE  "\x7-PARAMINFO-\xf7"
+#define PARAMETERS_INFO_SIGNATURE  "\x7f-PARAMINFO-\xf7"
         uint8_t signature[SIGNATURE_LENGTH];
         addr_t address;
         uint32_t length;
@@ -126,7 +126,7 @@ struct parameters_info {
 
 #define DECLARE_PARAMETERS_INFO(name, a, l)                        \
         static const struct parameters_info __data_info name = {   \
-                .signature = DFU_INFO_SIGNATURE,                   \
+                .signature = PARAMETERS_INFO_SIGNATURE,            \
                 .address = (const addr_t)(a),                      \
                 .length = (l),                                     \
         }
