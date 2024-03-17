@@ -131,9 +131,9 @@ class firmware:
             return None
 
         addr = self._extract_u32(offset + 16)
-        addr = self._extract_u32(offset + 20)
-        return {"cmdline_addr": 0,
-                "cmdline_length": 0}
+        length = self._extract_u32(offset + 20)
+        return {"cmdline_addr": hex(addr),
+                "cmdline_length": length}
 
 
 class dfusyx:
