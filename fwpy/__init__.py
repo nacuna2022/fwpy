@@ -5,7 +5,6 @@ class firmware:
         self.major = 0
         self.minor = 0
         self.patch = 0
-        self.data = ""
 
     def loadhex(self, source):
         data = ""
@@ -19,7 +18,7 @@ class firmware:
 
     def loadbin(self, source):
         with open(source, "rb") as src:
-            self.data = str(src.read())
+            self.data = src.read()
 
     def load(self, source=None, form=None):
         if source is not None:
